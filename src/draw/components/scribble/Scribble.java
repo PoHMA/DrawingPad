@@ -17,14 +17,14 @@ public class Scribble extends JFrame {
   private ExitListener exitAction;
   private MenuManager menuManager;
   private DrawingCanvas drawingCanvas;
-  private ScribbleWindowAdapter windowAdapter;
+  private ListenerWindowAdapter windowAdapter;
   private DataBase dataBase = DataBase.getInstance();
 
   public Scribble(String title, Pintor pintor) {
     super(title);
     this.pintor = pintor;
     drawingCanvas = new DrawingCanvas(pintor);
-    windowAdapter = new ScribbleWindowAdapter(this);
+    windowAdapter = new ListenerWindowAdapter(this);
     initComponents();
     setTemplate();
   }
@@ -32,8 +32,6 @@ public class Scribble extends JFrame {
   private void initComponents() {
     // calling factory method
     canvas = drawingCanvas.getComponent();
-    pintor.setCanvas(canvas);
-    pintor.remenber();
     menuManager = new MenuManager(canvas, this);
   }
 

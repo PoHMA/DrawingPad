@@ -8,19 +8,19 @@ public class Pintor extends Notificador{
   private ToolKit drawings ;
   private Tool tool;
   private boolean mouseButtonDown;
-  private ScribbleCanvas drawingCanvas;
 
   public Pintor(){
     mouseButtonDown = false;
     drawings = new ToolKit();
+    remenber();
   }
 
-  public void remenber() {
-    drawings.addTool(new ScribbleTool(drawingCanvas, "Scribble"));
+  private void remenber() {
+    drawings.addTool(new ScribbleTool("Scribble"));
     drawings.addTool(new TwoEndsTool("Line", new LineShape()));
     drawings.addTool(new TwoEndsTool("Oval", new OvalShape()));
     drawings.addTool(new TwoEndsTool("Rectangle", new RectangleShape()));
-    setTool(drawings.getTool(2));
+    setTool(drawings.getTool(0));
   }
 
   public void startShape(Point p) {
@@ -49,10 +49,6 @@ public class Pintor extends Notificador{
 
   public void setTool(Tool tool) {
     this.tool = tool;
-  }
-
-  public void setCanvas(ScribbleCanvas canvas) {
-    this.drawingCanvas = canvas;
   }
 
   public ToolKit getToolkit() {

@@ -7,7 +7,6 @@ import draw.pintor.Pintor;
 import draw.pintor.IObserver;
 import draw.pintor.LineShape;
 import draw.pintor.Shape;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -49,7 +48,7 @@ public class DrawingCanvas implements IObserver {
   void endShape(Point p) {
     this.pintor.endShape(p);
     Shape tool = this.pintor.getTool().getShape();
-    drawingCanvas.addShape(new LineShape(tool.getXStart(), tool.getYStart(), tool.getXEnd(), tool.getYEnd()));
+    //drawingCanvas.addShape(new LineShape(tool.getXStart(), tool.getYStart(), tool.getXEnd(), tool.getYEnd()));
     Graphics g = drawingCanvas.getGraphics();
     g.setPaintMode();
     drawingCanvas.repaint();
@@ -57,11 +56,8 @@ public class DrawingCanvas implements IObserver {
 
   @Override
   public void drawing(Shape tool) {
-    Graphics g = drawingCanvas.getGraphics();
-    g.setXORMode(Color.darkGray);
-    g.setColor(Color.lightGray);
     Paint paint = dataBase.getPaint(tool);
-    paint.draw(g,tool);
+    paint.paintDrag(drawingCanvas, tool);
   }
 
 

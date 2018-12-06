@@ -10,13 +10,13 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-public class ToolkitManager {
+public class ToolManager {
 
   private ToolKit toolkit;
   private EventTool eventTool;
   private Pintor pintor;
 
-  public ToolkitManager(Pintor pintor) {
+  public ToolManager(Pintor pintor) {
     this.pintor = pintor;
     toolkit = pintor.getToolkit();
     this.eventTool = new EventTool(this);

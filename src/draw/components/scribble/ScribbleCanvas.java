@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class ScribbleCanvas extends JPanel {
 
   // The list of shapes of the drawing
-  // The elements are instances of Stroke
+  // The elements are instances of StrokePaint
 
   private Color curColor = Color.black;
   private DataBase dataBase;

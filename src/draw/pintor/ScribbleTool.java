@@ -2,39 +2,44 @@
 package draw.pintor;
 
 import draw.components.scribble.ScribbleCanvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
 public class ScribbleTool extends AbstractTool {
 
   private Stroke curStroke = null;
-  private ScribbleCanvas canvas;
+  private Point canvasShape;
 
-  ScribbleTool(ScribbleCanvas scribbleCanvas, String name) {
+  ScribbleTool(String name) {
     super(name);
-    this.canvas = scribbleCanvas;
+    canvasShape = new Point();
   }
 
   public void startShape(Point p) {
-    curStroke = new Stroke(canvas.getCurColor()); 
-    curStroke.addPoint(p); 
+    curStroke = new Stroke(Color.BLACK);
+    curStroke.addPoint(p);
+    curStroke.setPointStart(p.x, p.y);
+    curStroke.setPointEnds(p.x, p.y);
+    canvasShape.x = p.x;
+    canvasShape.y = p.y;
   }
 
   public void addPointToShape(Point p) {
-    Point canvasShape = new Point(0,0);
-    if (curStroke != null) { 
-      curStroke.addPoint(p); 
-      Graphics g = canvas.getGraphics();
-      g.setColor(canvas.getCurColor());
-      g.drawLine(canvasShape.x, canvasShape.y, p.x, p.y);
+    if (curStroke != null) {
+      curStroke.addPoint(p);
+      curStroke.setPointStart(canvasShape.x,canvasShape.y);
+      curStroke.setPointEnds(p.x,p.y);
+      canvasShape.x = p.x;
+      canvasShape.y = p.y;
     }
   }
 
   public void endShape(Point p) {
-    if (curStroke != null) { 
-      curStroke.addPoint(p); 
-      canvas.addShape(curStroke); 
-      curStroke = null; 
+    if (curStroke != null) {
+      curStroke.addPoint(p);
+      //canvas.addShape(curStroke);
+      curStroke = null;
     }
   }
 

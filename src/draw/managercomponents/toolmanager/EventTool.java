@@ -6,17 +6,17 @@ import javax.swing.AbstractButton;
 
 public class EventTool implements ActionListener {
 
-  private ToolkitManager toolkitManager;
+  private ToolManager toolManager;
 
-  EventTool(ToolkitManager toolkitManager){
-    this.toolkitManager = toolkitManager;
+  EventTool(ToolManager toolManager){
+    this.toolManager = toolManager;
   }
 
   @Override
   public void actionPerformed(ActionEvent event) {
     Object source = event.getSource();
     AbstractButton button = (AbstractButton) source;
-    toolkitManager.selectedTool(button.getText());
+    toolManager.selectedTool(button.getText());
   }
 
 }

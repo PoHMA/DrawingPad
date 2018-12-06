@@ -13,6 +13,7 @@ public class Stroke extends Shape {
   // The list of points on the stroke
   // elements are instances of java.awt.Point
   private List<Point> points = new ArrayList<Point>();
+  private int xStart, yStart, xEnd, yEnd;
 
   public Stroke() {} 
   
@@ -34,10 +35,10 @@ public class Stroke extends Shape {
     if (color != null) {
       g.setColor(color);
     }
-    Point prev = null; 
+    Point prev = null;
     Iterator iter = points.iterator();
-    while (iter.hasNext()) { 
-      Point cur = (Point) iter.next(); 
+    while (iter.hasNext()) {
+      Point cur = (Point) iter.next();
       if (prev != null) {
       	g.drawLine(prev.x, prev.y, cur.x, cur.y);
       }
@@ -47,32 +48,34 @@ public class Stroke extends Shape {
 
   @Override
   public void setPointStart(int x, int y) {
-
+    this.xStart = x;
+    this.yStart = y;
   }
 
   @Override
   public void setPointEnds(int x, int y) {
-
+    this.xEnd = x;
+    this.yEnd = y;
   }
 
   @Override
   public int getXStart() {
-    return 0;
+    return xStart;
   }
 
   @Override
   public int getYStart() {
-    return 0;
+    return yStart;
   }
 
   @Override
   public int getXEnd() {
-    return 0;
+    return xEnd;
   }
 
   @Override
   public int getYEnd() {
-    return 0;
+    return yEnd;
   }
 
   @Override

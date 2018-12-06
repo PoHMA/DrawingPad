@@ -5,10 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ScribbleWindowAdapter extends WindowAdapter {
+public class ListenerWindowAdapter extends WindowAdapter {
   private final Scribble frame;
 
-  ScribbleWindowAdapter(Scribble f) {
+  ListenerWindowAdapter(Scribble f) {
     frame = f;
   }
 

@@ -1,7 +1,7 @@
 package draw.managercomponents.drawingpadmanager;
 
 import draw.components.scribble.Scribble;
-import draw.managercomponents.toolmanager.ToolkitManager;
+import draw.managercomponents.toolmanager.ToolManager;
 import draw.pintor.Pintor;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -25,10 +25,10 @@ public class DrawingPad {
   }
 
   private void addComponents() {
-    ToolkitManager toolkitManager = new ToolkitManager(pintor);
-    JComponent toolbar = toolkitManager.createToolBar();
+    ToolManager toolManager = new ToolManager(pintor);
+    JComponent toolbar = toolManager.createToolBar();
     this.scribble.getContentPane().add(toolbar, BorderLayout.WEST);
-    JMenu menu = toolkitManager.createToolMenu();
+    JMenu menu = toolManager.createToolMenu();
     JMenuBar menuBar = this.scribble.getJMenuBar();
     menuBar.add(menu, 1); // insert at index position 1
   }

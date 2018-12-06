@@ -4,10 +4,12 @@ import draw.components.tool.LinePaint;
 import draw.components.tool.OvalPaint;
 import draw.components.tool.Paint;
 import draw.components.tool.RectanglePaint;
+import draw.components.tool.StrokePaint;
 import draw.pintor.LineShape;
 import draw.pintor.OvalShape;
 import draw.pintor.RectangleShape;
 import draw.pintor.Shape;
+import draw.pintor.Stroke;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -82,6 +84,9 @@ public class DataBase {
     }
     if(tool instanceof RectangleShape){
       paint = new RectanglePaint();
+    }
+    if(tool instanceof Stroke){
+      paint = new StrokePaint();
     }
     return paint;
   }
