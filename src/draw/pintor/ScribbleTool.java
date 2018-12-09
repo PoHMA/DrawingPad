@@ -1,9 +1,7 @@
 
 package draw.pintor;
 
-import draw.components.scribble.ScribbleCanvas;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Point;
 
 public class ScribbleTool extends AbstractTool {
@@ -36,16 +34,18 @@ public class ScribbleTool extends AbstractTool {
   }
 
   public void endShape(Point p) {
-    if (curStroke != null) {
-      curStroke.addPoint(p);
-      //canvas.addShape(curStroke);
-      curStroke = null;
-    }
+    curStroke.addPoint(p);
   }
 
   @Override
   public Shape getShape() {
-    return this.curStroke;
+    Shape shapeCopy = null;
+    try {
+      shapeCopy = this.curStroke.clone();
+    } catch (CloneNotSupportedException e) {
+      e.printStackTrace();
+    }
+    return shapeCopy;
   }
 
 }

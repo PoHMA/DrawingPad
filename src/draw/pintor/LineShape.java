@@ -2,7 +2,7 @@ package draw.pintor;
 
 import java.awt.Graphics;
 
-public class LineShape extends TwoEndsShape {
+public class LineShape extends Shape {
 
   private int xStart;
   private int yStart;
@@ -22,7 +22,7 @@ public class LineShape extends TwoEndsShape {
     this.x2 = x2;
     this.y2 = y2;
   }
-
+/*
   @Override
   public void draw(Graphics g) {
     if (color != null) {
@@ -30,7 +30,7 @@ public class LineShape extends TwoEndsShape {
     }
     g.drawLine(xStart, yStart, x2, y2);
   }
-
+*/
   @Override
   public void setPointStart(int x, int y) {
     this.xStart = x;
@@ -75,7 +75,6 @@ public class LineShape extends TwoEndsShape {
     return height;
   }
 
-  @Override
   public void drawOutline(Graphics g, int x1, int y1, int x2, int y2) {
     g.drawLine(x1, y1, x2, y2); 
   }

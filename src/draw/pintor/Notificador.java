@@ -21,4 +21,10 @@ public class Notificador {
     }
   }
 
+  void notifyUpdate(){
+    for(IObserver o: observers){
+      o.update();
+    }
+  }
+
 }

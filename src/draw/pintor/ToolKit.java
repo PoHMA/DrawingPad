@@ -12,8 +12,8 @@ public class ToolKit {
   }
   
   /**
-    Add a new tool to the tool kit.
-    Return the index of the new tool.
+    Add a new paint to the paint kit.
+    Return the index of the new paint.
    */
   int addTool(Tool tool) {
     if (tool != null) {

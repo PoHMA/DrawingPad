@@ -2,7 +2,7 @@ package draw.pintor;
 
 import java.awt.Graphics;
 
-public class RectangleShape extends TwoEndsShape {
+public class RectangleShape extends Shape {
 
   private int xStart;
   private int yStart;
@@ -20,7 +20,7 @@ public class RectangleShape extends TwoEndsShape {
     this.x2 = x2;
     this.y2 = y2;
   }
-
+/*
   @Override
   public void draw(Graphics g) {
     int x = Math.min(xStart, x2);
@@ -32,7 +32,7 @@ public class RectangleShape extends TwoEndsShape {
     }
     g.drawRect(x, y, w, h);
   }
-
+*/
   @Override
   public void setPointStart(int x, int y) {
     this.xStart = x;

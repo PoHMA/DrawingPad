@@ -2,7 +2,7 @@ package draw.pintor;
 
 import java.awt.Graphics;
 
-public class OvalShape extends TwoEndsShape {
+public class OvalShape extends Shape {
 
   private int xStart;
   private int yStart;
@@ -21,6 +21,7 @@ public class OvalShape extends TwoEndsShape {
     this.y2 = y2;
   }
 
+  /*
   @Override
   public void draw(Graphics g) {
     int x = Math.min(xStart, x2);
@@ -32,6 +33,7 @@ public class OvalShape extends TwoEndsShape {
     }
     g.drawOval(x, y, w, h);
   }
+*/
 
   @Override
   public void setPointStart(int x, int y) {
@@ -77,7 +79,6 @@ public class OvalShape extends TwoEndsShape {
     return height;
   }
 
-  @Override
   public void drawOutline(Graphics g, int x1, int y1, int x2, int y2) {
     int x = Math.min(x1, x2); 
     int y = Math.min(y1, y2); 

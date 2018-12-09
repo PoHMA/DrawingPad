@@ -2,11 +2,9 @@
 package draw.pintor;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.awt.Point;
 import java.awt.Color;
-import java.awt.Graphics;
 
 public class Stroke extends Shape {
 
@@ -31,6 +29,7 @@ public class Stroke extends Shape {
     return points; 
   }
 
+  /*
   public void draw(Graphics g) {
     if (color != null) {
       g.setColor(color);
@@ -45,7 +44,7 @@ public class Stroke extends Shape {
       prev = cur; 
     }
   }
-
+*/
   @Override
   public void setPointStart(int x, int y) {
     this.xStart = x;
