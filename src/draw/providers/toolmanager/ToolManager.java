@@ -1,4 +1,4 @@
-package draw.managercomponents.toolmanager;
+package draw.providers.toolmanager;
 
 import draw.pintor.Pintor;
 import draw.pintor.Tool;

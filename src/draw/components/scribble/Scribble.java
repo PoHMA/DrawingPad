@@ -2,9 +2,9 @@
 package draw.components.scribble;
 
 import draw.components.menubar.ExitListener;
-import draw.managercomponents.canvasmanager.DrawingCanvas;
+import draw.providers.canvasmanager.DrawingCanvas;
 import draw.persistencia.DataBase;
-import draw.managercomponents.menumanager.MenuManager;
+import draw.providers.menumanager.MenuManager;
 import draw.pintor.Pintor;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;

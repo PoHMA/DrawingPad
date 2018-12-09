@@ -1,4 +1,4 @@
-package draw.components.tool;
+package draw.components.paint;
 
 import draw.components.scribble.ScribbleCanvas;
 import draw.pintor.Shape;
@@ -16,5 +16,6 @@ public abstract class Paint {
 
   public abstract void draw(Graphics g, Shape tool);
   abstract void drag(Graphics g, Shape tool);
+
 
 }

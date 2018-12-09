@@ -1,4 +1,4 @@
-package draw.components.tool;
+package draw.components.paint;
 
 import draw.pintor.Shape;
 import draw.pintor.Stroke;

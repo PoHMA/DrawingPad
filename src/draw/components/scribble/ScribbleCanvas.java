@@ -1,6 +1,6 @@
 package draw.components.scribble;
 
-import draw.components.tool.Paint;
+import draw.components.paint.Paint;
 import draw.persistencia.DataBase;
 import draw.pintor.Shape;
 import java.awt.Color;
@@ -31,12 +31,6 @@ public class ScribbleCanvas extends JPanel {
     return curColor; 
   }
 
-  public void addShape(Shape shape) {
-    if (shape != null) {
-      dataBase.addShape(shape);
-    }
-  }
-
   public void paint(Graphics g) {
     List<Shape> shapes = dataBase.getShapes();
     Dimension dim = getSize();
@@ -47,10 +41,8 @@ public class ScribbleCanvas extends JPanel {
       Iterator iter = shapes.iterator();
       while (iter.hasNext()) {
         Shape shape = (Shape) iter.next();
-        if (shape != null) {
-          Paint paint = dataBase.getPaint(shape);
-          paint.draw(g, shape);
-        }
+        Paint paint = dataBase.getPaint(shape);
+        paint.draw(g, shape);
       }
     }
   }

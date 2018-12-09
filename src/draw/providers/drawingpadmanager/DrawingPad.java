@@ -1,7 +1,7 @@
-package draw.managercomponents.drawingpadmanager;
+package draw.providers.drawingpadmanager;
 
 import draw.components.scribble.Scribble;
-import draw.managercomponents.toolmanager.ToolManager;
+import draw.providers.toolmanager.ToolManager;
 import draw.pintor.Pintor;
 import java.awt.BorderLayout;
 import java.awt.Dimension;

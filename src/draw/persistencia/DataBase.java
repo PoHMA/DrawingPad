@@ -1,10 +1,10 @@
 package draw.persistencia;
 
-import draw.components.tool.LinePaint;
-import draw.components.tool.OvalPaint;
-import draw.components.tool.Paint;
-import draw.components.tool.RectanglePaint;
-import draw.components.tool.StrokePaint;
+import draw.components.paint.LinePaint;
+import draw.components.paint.OvalPaint;
+import draw.components.paint.Paint;
+import draw.components.paint.RectanglePaint;
+import draw.components.paint.StrokePaint;
 import draw.pintor.LineShape;
 import draw.pintor.OvalShape;
 import draw.pintor.RectangleShape;
@@ -25,7 +25,7 @@ public class DataBase {
   private static DataBase instance = null;
 
   private DataBase(){
-    shapes = new ArrayList<Shape>();
+    shapes = new ArrayList<>();
   }
 
   public static DataBase getInstance() {
@@ -36,7 +36,8 @@ public class DataBase {
   }
 
   public void addShape(Shape shape) {
-    shapes.add(shape);
+    if( shape != null)
+      shapes.add(shape);
   }
 
   public List<Shape> getShapes() {

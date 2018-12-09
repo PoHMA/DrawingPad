@@ -1,5 +1,5 @@
 
-package draw.managercomponents.canvasmanager;
+package draw.providers.canvasmanager;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;

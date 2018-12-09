@@ -1,4 +1,4 @@
-package draw.managercomponents.menumanager;
+package draw.providers.menumanager;
 
 import draw.components.menubar.NavBar;
 import draw.components.scribble.Scribble;

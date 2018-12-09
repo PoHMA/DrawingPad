@@ -1,4 +1,4 @@
-package draw.managercomponents.toolmanager;
+package draw.providers.toolmanager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

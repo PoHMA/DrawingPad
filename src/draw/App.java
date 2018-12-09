@@ -1,6 +1,6 @@
 package draw;
 
-import draw.managercomponents.drawingpadmanager.DrawingPad;
+import draw.providers.drawingpadmanager.DrawingPad;
 
 public class App {
 

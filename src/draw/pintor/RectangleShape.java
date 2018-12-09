@@ -14,25 +14,6 @@ public class RectangleShape extends Shape {
   RectangleShape() {
   }
 
-  private RectangleShape(int x1, int y1, int x2, int y2) {
-    this.xStart = x1;
-    this.yStart = y1;
-    this.x2 = x2;
-    this.y2 = y2;
-  }
-/*
-  @Override
-  public void draw(Graphics g) {
-    int x = Math.min(xStart, x2);
-    int y = Math.min(yStart, y2);
-    int w = Math.abs(xStart - x2) + 1;
-    int h = Math.abs(yStart - y2) + 1;
-    if (color != null) {
-      g.setColor(color);
-    }
-    g.drawRect(x, y, w, h);
-  }
-*/
   @Override
   public void setPointStart(int x, int y) {
     this.xStart = x;
