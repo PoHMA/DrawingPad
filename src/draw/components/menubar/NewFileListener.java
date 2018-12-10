@@ -8,7 +8,7 @@ public class NewFileListener implements ActionListener {
 
   private Scribble scribble;
 
-  public NewFileListener(Scribble scribble){
+  NewFileListener(Scribble scribble){
     this.scribble = scribble;
   }
 

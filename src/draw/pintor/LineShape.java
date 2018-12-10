@@ -1,7 +1,5 @@
 package draw.pintor;
 
-import java.awt.Graphics;
-
 public class LineShape extends Shape {
 
   private int xStart;
@@ -58,10 +56,6 @@ public class LineShape extends Shape {
   @Override
   public int getHeight() {
     return height;
-  }
-
-  public void drawOutline(Graphics g, int x1, int y1, int x2, int y2) {
-    g.drawLine(x1, y1, x2, y2); 
   }
 
 }

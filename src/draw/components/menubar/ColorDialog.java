@@ -57,7 +57,7 @@ public class ColorDialog extends JDialog implements ActionListener {
     pack();
   }
 
-   public Color showDialog() {
+  public Color showDialog() {
     result = null;
     colorPanel.setColor(color); 
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

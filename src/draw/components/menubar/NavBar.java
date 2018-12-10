@@ -2,7 +2,8 @@ package draw.components.menubar;
 
 import draw.components.scribble.ScribbleCanvas;
 import draw.components.scribble.Scribble;
-import java.awt.event.ActionListener;
+import draw.pintor.Pintor;
+import draw.providers.menumanager.ColorListener;
 import javax.swing.Box;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -12,12 +13,12 @@ import javax.swing.JSeparator;
 public class NavBar extends JMenuBar{
 
   private Scribble scribble;
-  private ScribbleCanvas scribbleCanvas;
   private ExitListener exitAction;
+  private Pintor pintor;
 
-  public NavBar(Scribble scribble, ScribbleCanvas scribbleCanvas){
+  public NavBar(Scribble scribble, Pintor pintor){
     this.scribble = scribble;
-    this.scribbleCanvas = scribbleCanvas;
+    this.pintor = pintor;
     createMenu();
   }
 
@@ -58,7 +59,7 @@ public class NavBar extends JMenuBar{
 
     mi = new JMenuItem("Color");
     menu.add(mi);
-    mi.addActionListener(new ColorListener(scribble,scribbleCanvas));
+    mi.addActionListener(new ColorListener(scribble,pintor));
 
     // horizontal space
     add(Box.createHorizontalGlue());

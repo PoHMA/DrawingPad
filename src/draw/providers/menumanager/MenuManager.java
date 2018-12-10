@@ -2,14 +2,14 @@ package draw.providers.menumanager;
 
 import draw.components.menubar.NavBar;
 import draw.components.scribble.Scribble;
-import draw.components.scribble.ScribbleCanvas;
+import draw.pintor.Pintor;
 
 public class MenuManager {
 
   private NavBar navBar;
 
-  public MenuManager(ScribbleCanvas canvas, Scribble scribble) {
-    navBar = new NavBar(scribble,canvas);
+  public MenuManager(Scribble scribble, Pintor pintor) {
+    navBar = new NavBar(scribble,pintor);
   }
 
   public NavBar getComponent(){

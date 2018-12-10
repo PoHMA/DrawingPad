@@ -1,7 +1,5 @@
 package draw.pintor;
 
-import java.awt.Graphics;
-
 public class OvalShape extends Shape {
 
   private int xStart;
@@ -57,24 +55,5 @@ public class OvalShape extends Shape {
   public int getHeight() {
     return height;
   }
-
-  public void drawOutline(Graphics g, int x1, int y1, int x2, int y2) {
-    int x = Math.min(x1, x2); 
-    int y = Math.min(y1, y2); 
-    int w = Math.abs(x1 - x2) + 1; 
-    int h = Math.abs(y1 - y2) + 1;     
-    g.drawOval(x, y, w, h);
-  }
-
-  /*
-  public void endShape(Point p) {
-    this.x2 = p.x;
-    this.y2 = p.y;
-    setColor(drawingCanvas.getCurColor());
-    drawingCanvas.addShape(new OvalShape(xStart,yStart,x2,y2));
-    Graphics g = drawingCanvas.getGraphics();
-    g.setPaintMode();
-    drawingCanvas.repaint();
-  }*/
 
 }

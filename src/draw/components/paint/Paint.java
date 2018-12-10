@@ -14,8 +14,11 @@ public abstract class Paint {
     drag(g,tool);
   }
 
-  public abstract void draw(Graphics g, Shape tool);
+  public void paintDraw(Graphics g, Shape shape){
+    g.setColor(shape.getColor());
+    draw(g,shape);
+  }
+
+  abstract void draw(Graphics g, Shape tool);
   abstract void drag(Graphics g, Shape tool);
-
-
 }

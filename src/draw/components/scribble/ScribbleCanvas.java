@@ -15,20 +15,11 @@ public class ScribbleCanvas extends JPanel {
   // The list of shapes of the drawing
   // The elements are instances of StrokePaint
 
-  private Color curColor = Color.black;
   private DataBase dataBase;
 
   public ScribbleCanvas() {
     // calling factory method
     dataBase = DataBase.getInstance();
-  }
-
-  public void setCurColor(Color curColor) {
-    this.curColor = curColor; 
-  }
-
-  public Color getCurColor() { 
-    return curColor; 
   }
 
   public void paint(Graphics g) {
@@ -42,7 +33,7 @@ public class ScribbleCanvas extends JPanel {
       while (iter.hasNext()) {
         Shape shape = (Shape) iter.next();
         Paint paint = dataBase.getPaint(shape);
-        paint.draw(g, shape);
+        paint.paintDraw(g, shape);
       }
     }
   }

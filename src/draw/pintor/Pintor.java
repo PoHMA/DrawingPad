@@ -1,6 +1,7 @@
 package draw.pintor;
 
 import draw.persistencia.DataBase;
+import java.awt.Color;
 import java.awt.Point;
 
 public class Pintor extends Notificador{
@@ -9,8 +10,10 @@ public class Pintor extends Notificador{
   private Tool tool;
   private boolean mouseButtonDown;
   private DataBase database;
+  private Color color;
 
   public Pintor(){
+    color = Color.BLACK;
     database = DataBase.getInstance();
     mouseButtonDown = false;
     drawings = new ToolKit();
@@ -23,6 +26,10 @@ public class Pintor extends Notificador{
     drawings.addTool(new TwoEndsTool("Oval", new OvalShape()));
     drawings.addTool(new TwoEndsTool("Rectangle", new RectangleShape()));
     setTool(drawings.getTool(1));
+  }
+
+  public void changeColor(Color color){
+    this.color = color;
   }
 
   public void startShape(Point p) {
@@ -43,6 +50,7 @@ public class Pintor extends Notificador{
   public void endShape(Point p) {
     this.tool.endShape(p);
     Shape shape = this.tool.getShape();
+    shape.setColor(this.color);
     database.addShape(shape);
     notifyUpdate();
     mouseButtonDown = false;
@@ -58,6 +66,10 @@ public class Pintor extends Notificador{
 
   public ToolKit getToolkit() {
     return drawings;
+  }
+
+  public Color getColor() {
+    return color;
   }
 
 }

@@ -30,9 +30,8 @@ public class Scribble extends JFrame {
   }
 
   private void initComponents() {
-    // calling factory method
     canvas = drawingCanvas.getComponent();
-    menuManager = new MenuManager(canvas, this);
+    menuManager = new MenuManager(this, pintor);
   }
 
   private void setTemplate(){

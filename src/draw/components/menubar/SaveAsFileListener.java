@@ -11,7 +11,7 @@ public class SaveAsFileListener implements ActionListener {
   private JFileChooser chooser = new JFileChooser(".");
   private Scribble scribble;
 
-  public SaveAsFileListener(Scribble scribble){
+  SaveAsFileListener(Scribble scribble){
     this.scribble = scribble;
   }
 

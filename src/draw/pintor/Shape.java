@@ -28,8 +28,6 @@ public abstract class Shape implements Serializable, Cloneable {
     return color; 
   }
 
- //public abstract void draw(Graphics g);
-
   public abstract void setPointStart(int x, int y);
 
   public abstract void setPointEnds(int x, int y);

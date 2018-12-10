@@ -10,7 +10,7 @@ public class ExitListener implements ActionListener {
 
   private Scribble scribble;
 
-  public ExitListener(Scribble scribble){
+  ExitListener(Scribble scribble){
     this.scribble = scribble;
   }
 

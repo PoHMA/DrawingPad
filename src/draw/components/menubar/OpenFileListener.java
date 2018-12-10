@@ -11,7 +11,7 @@ public class OpenFileListener implements ActionListener {
   private Scribble scribble;
   private JFileChooser chooser = new JFileChooser(".");
 
-  public OpenFileListener(Scribble scribble){
+  OpenFileListener(Scribble scribble){
     this.scribble = scribble;
   }
 
