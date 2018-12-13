@@ -1,9 +1,8 @@
 package draw.components.menubar;
 
-import draw.components.scribble.ScribbleCanvas;
 import draw.components.scribble.Scribble;
 import draw.pintor.Pintor;
-import draw.providers.menumanager.ColorListener;
+import draw.managercomponents.menumanager.ColorListener;
 import javax.swing.Box;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;

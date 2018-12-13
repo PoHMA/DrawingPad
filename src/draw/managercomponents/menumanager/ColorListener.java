@@ -1,7 +1,6 @@
-package draw.providers.menumanager;
+package draw.managercomponents.menumanager;
 
 import draw.components.menubar.ColorDialog;
-import draw.components.scribble.ScribbleCanvas;
 import draw.components.scribble.Scribble;
 import draw.pintor.Pintor;
 import java.awt.Color;

@@ -26,8 +26,8 @@ public class StrokePaint extends Paint{
   }
 
   @Override
-  void drag(Graphics g, Shape tool) {
-    g.drawLine(tool.getXStart(), tool.getYStart(), tool.getXEnd(), tool.getYEnd());
+  void drag(Graphics g, Point start, Point end) {
+    g.drawLine(end.x, end.y, end.x+5, end.y+5);
   }
 
 }

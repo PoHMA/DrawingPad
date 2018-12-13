@@ -1,15 +1,6 @@
 package draw.persistencia;
 
-import draw.components.paint.LinePaint;
-import draw.components.paint.OvalPaint;
-import draw.components.paint.Paint;
-import draw.components.paint.RectanglePaint;
-import draw.components.paint.StrokePaint;
-import draw.pintor.LineShape;
-import draw.pintor.OvalShape;
-import draw.pintor.RectangleShape;
 import draw.pintor.Shape;
-import draw.pintor.Stroke;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,11 +12,9 @@ import java.util.List;
 
 public class DataBase {
 
-  private List<Shape> shapes ;
   private static DataBase instance = null;
 
   private DataBase(){
-    shapes = new ArrayList<>();
   }
 
   public static DataBase getInstance() {
@@ -35,16 +24,8 @@ public class DataBase {
     return instance;
   }
 
-  public void addShape(Shape shape) {
-    if( shape != null)
-      shapes.add(shape);
-  }
-
-  public List<Shape> getShapes() {
-    return shapes;
-  }
-
-  public void openFile(String filename) {
+  public List<Shape> openFile(String filename) {
+    List<Shape> shapes = new ArrayList<>();
     try {
       FileInputStream fis = new FileInputStream(filename);
       ObjectInputStream ois = new ObjectInputStream(fis);
@@ -57,13 +38,14 @@ public class DataBase {
     } catch (ClassNotFoundException e2) {
       System.out.println(e2);
     }
+    return shapes;
   }
 
-  public void saveFile(String filename) {
+  public void saveFile(String filename, List<Shape> drawings) {
     try {
       FileOutputStream fos = new FileOutputStream(filename);
       ObjectOutputStream oos = new ObjectOutputStream(fos);
-      oos.writeObject(shapes.toArray(new Shape[shapes.size()]));
+      oos.writeObject(drawings.toArray(new Shape[drawings.size()]));
       oos.close();
       System.out.println("Save drawing to " + filename);
     } catch (IOException e) {
@@ -71,25 +53,5 @@ public class DataBase {
     }
   }
 
-  public void limpiar() {
-    shapes.clear();
-  }
-
-  public Paint getPaint(Shape tool){
-    Paint paint = null;
-    if(tool instanceof LineShape){
-      paint = new LinePaint();
-    }
-    if(tool instanceof OvalShape){
-      paint = new OvalPaint();
-    }
-    if(tool instanceof RectangleShape){
-      paint = new RectanglePaint();
-    }
-    if(tool instanceof Stroke){
-      paint = new StrokePaint();
-    }
-    return paint;
-  }
 
 }

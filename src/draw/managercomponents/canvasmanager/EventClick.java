@@ -1,5 +1,5 @@
 
-package draw.providers.canvasmanager;
+package draw.managercomponents.canvasmanager;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -16,7 +16,7 @@ public class EventClick
 
   public void mousePressed(MouseEvent e) {
     Point p = e.getPoint();
-    this.drawingCanvas.startDrawing(p);
+    this.drawingCanvas.startShape(p);
   }
 
   public void mouseReleased(MouseEvent e) {

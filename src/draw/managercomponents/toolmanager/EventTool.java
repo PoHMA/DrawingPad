@@ -1,4 +1,4 @@
-package draw.providers.toolmanager;
+package draw.managercomponents.toolmanager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +16,7 @@ public class EventTool implements ActionListener {
   public void actionPerformed(ActionEvent event) {
     Object source = event.getSource();
     AbstractButton button = (AbstractButton) source;
-    toolManager.selectedTool(button.getText());
+    toolManager.selectedShape(button.getText());
   }
 
 }

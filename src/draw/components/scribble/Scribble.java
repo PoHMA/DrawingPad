@@ -2,11 +2,13 @@
 package draw.components.scribble;
 
 import draw.components.menubar.ExitListener;
-import draw.providers.canvasmanager.DrawingCanvas;
+import draw.managercomponents.canvasmanager.DrawingCanvas;
 import draw.persistencia.DataBase;
-import draw.providers.menumanager.MenuManager;
+import draw.managercomponents.menumanager.MenuManager;
 import draw.pintor.Pintor;
 import java.awt.BorderLayout;
+import draw.pintor.Shape;
+import java.util.List;
 import javax.swing.JFrame;
 
 public class Scribble extends JFrame {
@@ -44,14 +46,17 @@ public class Scribble extends JFrame {
 
   public void newFile() {
     currentFilename = null; 
-    dataBase.limpiar();
+    this.pintor.clear();
     canvas.repaint();
     setTitle("Scribble Pad");
   }
 
    public void openFile(String filename) {
     currentFilename = filename;
-    dataBase.openFile(filename);
+    List<Shape> drawing = dataBase.openFile(filename);
+    for(Shape s: drawing){
+      this.pintor.addDrawing(s);
+    }
     canvas.repaint();
     setTitle("Scribble Pad [" + currentFilename + "]");
   }
@@ -60,13 +65,13 @@ public class Scribble extends JFrame {
     if (currentFilename == null) {
       currentFilename = "Untitled"; 
     }
-    dataBase.saveFile(currentFilename);
+    dataBase.saveFile(currentFilename, this.pintor.getDrawings());
     setTitle("Scribble Pad [" + currentFilename + "]");
   }
 
   public void saveFileAs(String filename) {
     currentFilename = filename; 
-    dataBase.saveFile(filename);
+    dataBase.saveFile(filename, this.pintor.getDrawings());
     setTitle("Scribble Pad [" + currentFilename + "]");
   }
 

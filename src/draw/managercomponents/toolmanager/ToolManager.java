@@ -1,8 +1,8 @@
-package draw.providers.toolmanager;
+package draw.managercomponents.toolmanager;
 
 import draw.pintor.Pintor;
-import draw.pintor.Tool;
-import draw.pintor.ToolKit;
+import draw.pintor.Shape;
+import draw.pintor.ShapeKit;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -12,32 +12,27 @@ import javax.swing.JPanel;
 
 public class ToolManager {
 
-  private ToolKit toolkit;
+  private ShapeKit shapekit;
   private EventTool eventTool;
   private Pintor pintor;
 
   public ToolManager(Pintor pintor) {
     this.pintor = pintor;
-    toolkit = pintor.getToolkit();
+    shapekit = pintor.getShapes();
     this.eventTool = new EventTool(this);
   }
 
-  void selectedTool(String nameButton){
-    Tool tool = toolkit.setSelectedTool(nameButton);
-    pintor.setTool(tool);
-  }
-
-  public Tool getSelectedTool() {
-    return toolkit.getSelectedTool();
+  void selectedShape(String nameButton){
+    this.pintor.selectedShape(nameButton);
   }
 
   public JComponent createToolBar() {
     JPanel toolbar = new JPanel(new GridLayout(0, 1));
-    int n = toolkit.getToolCount();
+    int n = shapekit.getShapeCount();
     for (int i = 0; i < n; i++) {
-      Tool tool = toolkit.getTool(i);
-      if (tool != null) {
-        JButton button = new JButton(tool.getName());
+      Shape shape = shapekit.getShape(i);
+      if (shape != null) {
+        JButton button = new JButton(shape.getName());
         button.addActionListener(eventTool);
         toolbar.add(button);
       }
@@ -47,11 +42,11 @@ public class ToolManager {
 
   public JMenu createToolMenu() {
     JMenu menu = new JMenu("Tools");
-    int n = toolkit.getToolCount();
+    int n = shapekit.getShapeCount();
     for (int i = 0; i < n; i++) {
-      Tool tool = toolkit.getTool(i);
-      if (tool != null) {
-        JMenuItem menuitem = new JMenuItem(tool.getName());
+      Shape shape = shapekit.getShape(i);
+      if (shape != null) {
+        JMenuItem menuitem = new JMenuItem(shape.getName());
         menuitem.addActionListener(eventTool);
         menu.add(menuitem);
       }
