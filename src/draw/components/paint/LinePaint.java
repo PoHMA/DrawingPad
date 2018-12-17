@@ -1,30 +1,38 @@
 package draw.components.paint;
 
-import draw.pintor.LineShape;
-import draw.pintor.Shape;
+import draw.pintor.implementations.DrawingArea;
+import draw.pintor.implementations.LineShape;
+import draw.pintor.Dibujo;
 import java.awt.Graphics;
 import java.awt.Point;
 
 public class LinePaint extends Paint {
 
-  @Override
-  public void draw(Graphics g, Shape shape) {
-    paintLine(g,shape);
+  private LineShape lineShape;
+
+  public LinePaint(){
+    lineShape = new LineShape();
   }
 
   @Override
-  void drag(Graphics g, Point start, Point end) {
-    g.drawLine(start.x, start.y, end.x, end.y);
-  }
-
-  private void paintLine(Graphics g, Shape shape) {
-    if(shape instanceof LineShape){
-      LineShape line = (LineShape) shape;
+  public void draw(Graphics g, Dibujo dibujo) {
+    if(dibujo instanceof LineShape){
+      LineShape line = (LineShape) dibujo;
       Point p1 = line.getP1();
       Point p2 = line.getP2();
       g.drawLine(p1.x, p1.y, p2.x, p2.y);
     }
   }
 
+  @Override
+  void drag(Graphics g, DrawingArea drawingArea) {
+    lineShape.draw(drawingArea);
+    draw(g,lineShape);
+  }
+
+  @Override
+  public Dibujo modify(Dibujo dibujo) {
+    return null;
+  }
 
 }

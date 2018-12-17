@@ -1,13 +1,16 @@
 package draw.components.scribble;
 
+import draw.components.paint.ClassPaint;
 import draw.components.paint.LinePaint;
 import draw.components.paint.OvalPaint;
 import draw.components.paint.Paint;
 import draw.components.paint.RectanglePaint;
 import draw.components.paint.StrokePaint;
-import draw.pintor.Pintor;
-import draw.pintor.EShape;
-import draw.pintor.Shape;
+import draw.components.paint.InheritancePaint;
+import draw.pintor.Dibujo;
+import draw.pintor.implementations.DrawingArea;
+import draw.pintor.implementations.Pintor;
+import draw.pintor.implementations.EShape;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -30,38 +33,50 @@ public class ScribbleCanvas extends JPanel {
     init();
   }
 
-  void init(){
+  private void init(){
     map = new HashMap<>();
     map.put(EShape.LINE.toString(), new LinePaint());
     map.put(EShape.OVAL.toString(), new OvalPaint());
     map.put(EShape.RECT.toString(), new RectanglePaint());
     map.put(EShape.SCRIBBLE.toString(), new StrokePaint());
+    map.put(EShape.INHERITANCE.toString(), new InheritancePaint());
+    map.put(EShape.CLASS.toString(), new ClassPaint());
   }
 
   public void paint(Graphics g) {
-    List<Shape> shapes = pintor.getDrawings();
+    List<Dibujo> dibujos = pintor.getDrawingArea().getDrawings();
     Dimension dim = getSize();
     g.setColor(Color.white);
     g.fillRect(0, 0, dim.width, dim.height);    
     g.setColor(Color.black);
-    if (shapes != null) { 
-      Iterator iter = shapes.iterator();
+    if (dibujos != null) {
+      Iterator iter = dibujos.iterator();
       while (iter.hasNext()) {
-        Shape shape = (Shape) iter.next();
-        Paint paint = map.get(shape.getName());
-        paint.paintDraw(g, shape);
+        Dibujo dibujo = (Dibujo) iter.next();
+        if(map.containsKey(dibujo.getName())){
+          Paint paint = map.get(dibujo.getName());
+          paint.paintDraw(g, dibujo);
+        }
       }
     }
   }
 
-  public void drawing(Shape shape, Point start, Point canvas) {
-    Paint paint = map.get(shape.getName());
-    paint.paintDrag(this, start, canvas);
+  public void drawing(Dibujo dibujo, DrawingArea drawingArea) {
+    if(map.containsKey(dibujo.getName())){
+      Paint paint = map.get(dibujo.getName());
+      paint.paintDrag(this, drawingArea);
+    }
   }
 
-  public void paintPoint(Point p, Point canvas) {
+  public void paintPoint(Point p, Point canvas, Color color) {
     Graphics g = getGraphics();
+    g.setColor(color);
     g.drawLine(canvas.x, canvas.y, p.x, p.y);
+  }
+
+  public Dibujo modifyDrawing(Dibujo dibujo){
+    Paint paint = map.get(dibujo.getName());
+    return paint.modify(dibujo);
   }
 
 }

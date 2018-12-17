@@ -1,8 +1,8 @@
 package draw.managercomponents.toolmanager;
 
-import draw.pintor.Pintor;
-import draw.pintor.Shape;
-import draw.pintor.ShapeKit;
+import draw.pintor.Dibujo;
+import draw.pintor.implementations.Pintor;
+import draw.pintor.implementations.ShapeList;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class ToolManager {
 
-  private ShapeKit shapekit;
+  private ShapeList shapekit;
   private EventTool eventTool;
   private Pintor pintor;
 
@@ -30,9 +30,9 @@ public class ToolManager {
     JPanel toolbar = new JPanel(new GridLayout(0, 1));
     int n = shapekit.getShapeCount();
     for (int i = 0; i < n; i++) {
-      Shape shape = shapekit.getShape(i);
-      if (shape != null) {
-        JButton button = new JButton(shape.getName());
+      Dibujo dibujo = shapekit.getShape(i);
+      if (dibujo != null) {
+        JButton button = new JButton(dibujo.getName());
         button.addActionListener(eventTool);
         toolbar.add(button);
       }
@@ -44,9 +44,9 @@ public class ToolManager {
     JMenu menu = new JMenu("Tools");
     int n = shapekit.getShapeCount();
     for (int i = 0; i < n; i++) {
-      Shape shape = shapekit.getShape(i);
-      if (shape != null) {
-        JMenuItem menuitem = new JMenuItem(shape.getName());
+      Dibujo dibujo = shapekit.getShape(i);
+      if (dibujo != null) {
+        JMenuItem menuitem = new JMenuItem(dibujo.getName());
         menuitem.addActionListener(eventTool);
         menu.add(menuitem);
       }

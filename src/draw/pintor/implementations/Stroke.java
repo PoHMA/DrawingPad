@@ -1,19 +1,21 @@
 
-package draw.pintor;
+package draw.pintor.implementations;
 
+import draw.pintor.Dibujo;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.Point;
 
-public class Stroke extends Shape {
+public class Stroke extends Dibujo {
 
   // The list of points on the stroke
   // elements are instances of java.awt.Point
   private List<Point> points = new ArrayList<>();
+  private DrawingArea drawingArea;
 
-  public Stroke() {}
+  Stroke() {}
 
-  public Stroke(List<Point> points){
+  Stroke(List<Point> points){
     this.points = points;
   }
 
@@ -29,14 +31,16 @@ public class Stroke extends Shape {
   }
 
   @Override
-  public Shape draw(DrawingArea drawingArea) {
-    Stroke stroke = new Stroke();
-    List<Point> lista = drawingArea.getPoints();
-    return new Stroke(lista);
+  public void draw(DrawingArea drawingArea) {
+    this.drawingArea = drawingArea;
   }
 
-  public List getPoints() {
+  public List<Point> getPoints() {
     return points; 
   }
 
+  @Override
+  public boolean isSelected(Point p) {
+    return false;
+  }
 }

@@ -29,7 +29,7 @@ public class ColorDialog extends JDialog implements ActionListener {
     this(owner, title, Color.black);
   }
 
-   public ColorDialog(JFrame owner, String title, Color color) {
+  public ColorDialog(JFrame owner, String title, Color color) {
     super(owner, title, true); 
     this.color = color; 
 

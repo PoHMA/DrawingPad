@@ -21,10 +21,16 @@ public class EventClick
 
   public void mouseReleased(MouseEvent e) {
     Point p = e.getPoint();
-    this.drawingCanvas.endShape(p);
+    if(e.getButton() == 1){
+      this.drawingCanvas.endShape(p);
+    }else{
+      this.drawingCanvas.setUpDibujo(p);
+    }
   }
 
-  public void mouseClicked(MouseEvent e) {}
+  public void mouseClicked(MouseEvent e) {
+  }
+
   public void mouseEntered(MouseEvent e) {}  
   public void mouseExited(MouseEvent e) {}
 
