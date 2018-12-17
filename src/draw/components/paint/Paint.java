@@ -5,7 +5,6 @@ import draw.pintor.Dibujo;
 import draw.pintor.implementations.DrawingArea;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Point;
 
 public abstract class Paint {
 

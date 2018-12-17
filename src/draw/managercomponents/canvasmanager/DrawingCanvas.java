@@ -7,7 +7,6 @@ import draw.pintor.implementations.DrawingArea;
 import draw.pintor.implementations.Pintor;
 import draw.pintor.interfaces.Edge;
 import java.awt.Point;
-import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 

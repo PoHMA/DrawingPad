@@ -10,11 +10,18 @@ public class Text extends Dibujo {
   private int height;
   private Point corner;
 
-  public Text(){
+  Text(){
     corner = new Point();
     text = "Text";
     width = 0;
-    height = 0;
+    height = 10;
+  }
+
+  Text(Point corner, String text, int width){
+    this.corner = corner;
+    this.text = text;
+    this.width = width;
+    this.height = 10;
   }
 
   @Override
@@ -24,10 +31,10 @@ public class Text extends Dibujo {
 
   @Override
   public void draw(DrawingArea drawingArea) {
-    width = drawingArea.getWidth();
     height = 10;
-    corner = drawingArea.getPointStart();
-    corner.x = corner.x + 35;
+    corner = new Point(drawingArea.getPointStart().x,drawingArea.getPointStart().y);
+    corner.x = corner.x + 5;
+    width = drawingArea.getWidth();
     corner.y = corner.y + height;
   }
 
@@ -35,16 +42,12 @@ public class Text extends Dibujo {
     return corner;
   }
 
-  public String getFont(){
-    return null;
-  }
-
-  public void setText(String cadena){
-    this.text = cadena;
-  }
-
   public String getText(){
     return this.text;
+  }
+
+  public int getWidth(){
+    return width;
   }
 
   @Override

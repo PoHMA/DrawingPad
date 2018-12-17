@@ -1,6 +1,9 @@
 package draw.components.scribble;
 
+import draw.components.paint.AgregationPaint;
+import draw.components.paint.AssociationPaint;
 import draw.components.paint.ClassPaint;
+import draw.components.paint.CompositionPaint;
 import draw.components.paint.LinePaint;
 import draw.components.paint.OvalPaint;
 import draw.components.paint.Paint;
@@ -41,6 +44,9 @@ public class ScribbleCanvas extends JPanel {
     map.put(EShape.SCRIBBLE.toString(), new StrokePaint());
     map.put(EShape.INHERITANCE.toString(), new InheritancePaint());
     map.put(EShape.CLASS.toString(), new ClassPaint());
+    map.put(EShape.AGGREGATION.toString(), new AgregationPaint());
+    map.put(EShape.ASSOCIATION.toString(), new AssociationPaint());
+    map.put(EShape.COMPOSITION.toString(), new CompositionPaint());
   }
 
   public void paint(Graphics g) {

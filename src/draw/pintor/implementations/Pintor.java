@@ -14,7 +14,7 @@ public class Pintor {
 
   public Pintor(){
     drawings = new DrawingArea(new Point(0,0), new Point(0,0));
-    drawPoint = true;
+    drawPoint = false;
     color = Color.BLACK;
     shapes = new ShapeList();
     init();
@@ -25,13 +25,12 @@ public class Pintor {
   }
 
   private void init() {
-    shapes.add(new Stroke());
-    shapes.add(new LineShape());
-    shapes.add(new OvalDibujo());
-    shapes.add(new RectangleDibujo());
-    shapes.add(new Inheritance());
     shapes.add(new ClassDrawing());
-    shapes.setSelectedDibujo(EShape.SCRIBBLE.toString());
+    shapes.add(new AgregationArrow());
+    shapes.add(new InheritanceArrrow());
+    shapes.add(new CompositionArrow());
+    shapes.add(new AssociationArrow());
+    shapes.setSelectedDibujo(EShape.CLASS.toString());
   }
 
   public void drawPoints(List<Point> points){

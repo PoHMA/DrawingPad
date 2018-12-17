@@ -6,15 +6,17 @@ import draw.pintor.interfaces.Edge;
 import draw.pintor.interfaces.Nodo;
 import java.awt.Point;
 
-public class Inheritance extends Dibujo implements Edge {
+public class InheritanceArrrow extends Dibujo implements Edge {
 
   private DrawingArea drawingArea;
   private LineShape line;
   private LineShape l1;
   private LineShape l2;
   private LineShape l3;
+  private Nodo head;
+  private Nodo tail;
 
-  public Inheritance(){
+  public InheritanceArrrow(){
     line = new LineShape();
     l1 = new LineShape();
     l2 = new LineShape();
@@ -33,15 +35,16 @@ public class Inheritance extends Dibujo implements Edge {
     Point start = drawingArea.getPointStart();
     Point end = drawingArea.getPointEnd();
     this.drawingArea = drawingArea;
-    line = new LineShape(new Point(start.x,start.y),new Point(end.x,end.y));
     alfa = Math.atan2(end.y - start.y, end.x - start.x);
-    xa1 = (int) (end.x - Utils.TAM_FIGURE * Math.cos(alfa + 1));
-    ya1 = (int) (end.y - Utils.TAM_FIGURE * Math.sin(alfa + 1));
+    xa1 = (int) (end.x - Utils.TAM_ARROW * Math.cos(alfa + 1));
+    ya1 = (int) (end.y - Utils.TAM_ARROW * Math.sin(alfa + 1));
     l1 = new LineShape(new Point(xa1,ya1), new Point(end.x,end.y));
-    xa2 = (int) (end.x - Utils.TAM_FIGURE * Math.cos(alfa - 1));
-    ya2 = (int) (end.y - Utils.TAM_FIGURE * Math.sin(alfa - 1));
+    xa2 = (int) (end.x - Utils.TAM_ARROW * Math.cos(alfa - 1));
+    ya2 = (int) (end.y - Utils.TAM_ARROW * Math.sin(alfa - 1));
     l2 = new LineShape(new Point(xa2, ya2), new Point(end.x,end.y));
     l3 = new LineShape(new Point(xa1, ya1), new Point(xa2, ya2));
+    end = new Point((xa1+xa2)/2,(ya1+ya2)/2);
+    line = new LineShape(new Point(start.x,start.y),new Point(end.x,end.y));
   }
 
   public LineShape getLine(){
@@ -67,7 +70,8 @@ public class Inheritance extends Dibujo implements Edge {
 
   @Override
   public void union(Nodo v1, Nodo v2) {
-
+    this.head = v2;
+    this.tail = v1;
   }
 
 }

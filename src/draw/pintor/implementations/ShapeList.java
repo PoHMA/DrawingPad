@@ -10,7 +10,7 @@ public class ShapeList {
   private List<Dibujo> dibujos;
   private Dibujo selectedDibujo;
 
-  public ShapeList(){
+  ShapeList(){
     dibujos = new ArrayList<Dibujo>();
     selectedDibujo = null;
   }

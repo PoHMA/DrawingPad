@@ -29,7 +29,8 @@ public class DrawingArea implements Serializable {
     limitDownLeft = new Point(Integer.MAX_VALUE,Integer.MAX_VALUE);
     limitTopRight = new Point(0,0);
     limitDownRight = new Point(0,Integer.MAX_VALUE);
-    limitTopLeft = new Point(Integer.MAX_VALUE,0);calculateVertices();
+    limitTopLeft = new Point(Integer.MAX_VALUE,0);
+    calculateVertices();
   }
 
   public void addDibujo(Dibujo dibujo){

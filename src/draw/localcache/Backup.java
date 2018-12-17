@@ -36,8 +36,9 @@ public class Backup {
     Point start = drawingArea.getPointStart();
     Point end = drawingArea.getPointEnd();
     DrawingArea clonDrawingArea = new DrawingArea(new Point(start.x,start.y), new Point(end.x,end.y));
-    for (Dibujo d: drawingArea.getDrawings())
+    for (Dibujo d: drawingArea.getDrawings()){
       clonDrawingArea.addDibujo(d);
+    }
     return clonDrawingArea;
   }
 

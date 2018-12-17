@@ -49,5 +49,23 @@ public enum EShape {
     public String toString(){
       return "Text";
     }
+  },
+  AGGREGATION {
+    @Override
+    public String toString(){
+      return "Aggregation";
+    }
+  },
+  COMPOSITION{
+    @Override
+    public String toString(){
+      return "Composition";
+    }
+  },
+  ASSOCIATION{
+    @Override
+    public String toString(){
+      return "Association";
+    }
   };
 }

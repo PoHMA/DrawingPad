@@ -30,7 +30,7 @@ public class DrawingPad {
     this.scribble.getContentPane().add(toolbar, BorderLayout.WEST);
     JMenu menu = toolManager.createToolMenu();
     JMenuBar menuBar = this.scribble.getJMenuBar();
-    menuBar.add(menu, 1); // insert at index position 1
+    menuBar.add(menu, 2);
   }
 
   private void initFrame() {
